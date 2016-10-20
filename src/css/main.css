@@ -822,3 +822,34 @@ footer {
 .slide__content {
   line-height: 1.22;
   letter-spacing: 0; }
+
+.section-title_partners {
+  padding: 86px 0.2% 20px 0; }
+
+.partners .partner {
+  margin: 12px 0 11px 5px;
+  top: 0; }
+  .partners .partner:first-of-type {
+    margin-left: 4px; }
+
+.search-btn_partners {
+  left: 0; }
+
+.section-title_activities {
+  padding-right: 2px; }
+
+.section-title_find-activities {
+  padding: 33px 2px 11px 0; }
+
+.find-activities__form {
+  width: 43.25%; }
+
+.logo_footer {
+  width: 17%; }
+
+.site-navigation {
+  width: 63.65%;
+  padding-left: 87px; }
+  .site-navigation .site-navigation__column {
+    width: 30.5%;
+    padding: 0; }
