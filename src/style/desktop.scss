@@ -1,0 +1,99 @@
+.container {
+  max-width: 960px;
+}
+//960 - HEADER
+.logo_header {
+  margin-left: 1.041666%;
+}
+.authorization {
+  margin-right: 1.041666%;
+}
+.header__title {
+  width: 60%;
+  padding: 125px 2px 10px 0;
+  line-height: 1.205;
+}
+.header__subtitle {
+  padding: 14px 0px 6px 0;
+}
+.search-btn_header {
+  padding-right: 1px;
+}
+//960 - MAIN - ABOUT
+.section-title_about {
+  padding: 95px 3px 14px 0px;
+}
+.slide_1 {
+  background-position: 52.5% -20px;
+}
+.slide_3 {
+  background-position: 49.9% -23px;
+}
+.slick-prev,
+.slick-next {
+  top: 162px;
+}
+.slick-prev {
+  background-position: 21px 0;
+}
+.slick-next {
+  background-position: 0 0;
+}
+.slider-2 .slick-prev {
+  left: 13px;
+  background-position-x: 19px;
+}
+.slider-2 .slick-next {
+  right: 13px;
+  background-position-x: 3px;
+}
+.slide__info-title {
+  line-height: 21px;
+}
+.slide__overlay {
+  padding: 229px 10px 0 20px;
+}
+.slide__title {
+  padding-top: 15px;
+  line-height: 1.23;
+}
+.slide__content {
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+//960 - MAIN - PARTNERS
+.section-title_partners {
+  padding: 86px 3px 20px 0;
+}
+.partners {
+  .partner {
+    width: 25%;
+    padding-left: 1px;
+    margin: 12px 0 9px;
+    top: 0;
+  }
+}
+.search-btn_partners {
+  left: 0;
+}
+// 960 - MAIN - ACTIVITIES
+.section-title_activities {
+  padding-right: 2px;
+}
+// 960 - MAIN - FIND ACTIVITIES
+.section-title_find-activities {
+  padding: 33px 2px 11px 0;
+}
+// 960 - FOOTER
+.logo_footer {
+  width: 16.8%;
+}
+.site-navigation {
+  width: 63.765%;
+  padding-left: 88px;
+  .site-navigation__column {
+    width: 30.5%;
+    padding: 0;
+  }
+}
