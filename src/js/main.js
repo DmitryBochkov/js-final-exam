@@ -1,10 +1,22 @@
 'use strict';
-
 /*SLIDERS*/
-$(document).ready(function(){
-  $('.slider-1').slick();
-  $('.slider-2').slick({initialSlide: 1});
-  $('.slider-3').slick({initialSlide: 2});
+$(document).ready(function() {
+  $('.slider-1').bxSlider({
+    // auto: true,
+    // pause: 8000,
+    pager: false,
+    infiniteLoop: true
+  });
+  $('.slider-2').bxSlider({
+    pager: false,
+    infiniteLoop: true,
+    startSlide: 1
+  });
+  $('.slider-3').bxSlider({
+    pager: false,
+    infiniteLoop: true,
+    startSlide: 2
+  });
 });
 
 var actGrid = document.querySelector('.activities__grid');

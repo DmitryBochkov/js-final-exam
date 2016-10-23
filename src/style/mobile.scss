@@ -6,7 +6,7 @@
 header {
   width: 100%;
   height: 540px;
-  color: #fff;
+  color: $secondary-title-color;
   background: #d1d1d0 url(../img/header-bg.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
@@ -26,12 +26,12 @@ header {
   @include border-radius(18px);
   float: left;
   font-size: 14px;
-  color: #fff;
+  color: $secondary-btn-color;
   height: 36px;
   line-height: 34px;
   border: 2px solid transparent;
   &:hover {
-    border-color: #fff;
+    border-color: $secondary-btn-color;
   }
 }
 .authorization__btn_login {
@@ -46,7 +46,7 @@ header {
   text-align: center;
 }
 .logo_header {
-  color: #fff;
+  color: $secondary-title-color;
   font-size: 20px;
   padding: 99px 0 20px 0;
   letter-spacing: 0.9px;
@@ -80,30 +80,40 @@ header {
 }
 .search-btn_header {
   margin-top: 11px;
-  color: #fff;
-  background-color: #ff4e50;
+  color: $secondary-btn-color;
+  background-color: $primary-btn-color;
 }
 
 //MAIN
 main {
-  border-bottom: 4px solid #ff4e50;
+  border-bottom: 4px solid $primary-color;
   padding-bottom: 40px;
 }
 //MAIN - ABOUT
 .section-title {
-  color: #333;
+  color: $primary-title-color;
   font-size: 22px;
   line-height: 1.2;
 }
 .section-title_about {
   padding: 35px 0 14px 0px;
 }
+
 .slider {
+  position: relative;
   width: 300px;
   margin: 0 auto;
+  padding-bottom: 10px;
+  *zoom: 1;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
 }
-.slick-prev,
-.slick-next {
+.bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+}
+.bx-prev,
+.bx-next {
   display: none !important;
 }
 .slide {
@@ -112,10 +122,9 @@ main {
   height: 240px;
   position: relative;
   margin: 0 auto 10px;
-  color: #fff;
+  color: $secondary-title-color;
   outline: 0;
 }
-
 .slide_1 {
   background: url(../img/slider-img1.jpg) no-repeat;
   background-size: 137% auto;
@@ -157,7 +166,7 @@ main {
   width: 70px;
   height: 20px;
   line-height: 21px;
-  background-color: #ff4e50;
+  background-color: $primary-color;
   font-size: 10px;
   text-transform: uppercase;
   text-align: center;
@@ -174,7 +183,7 @@ main {
 .slide__content {
   font-family: $content-font;
   font-size: 14px;
-  color: #ccc;
+  color: $secondary-content-color;
   font-weight: 300;
   padding: 7px 0 0 0;
   line-height: 1.21;
@@ -196,8 +205,8 @@ main {
   text-decoration: none;
   display: block;
   &:hover {
-    filter: brightness(110%);
-    transition: 0.4s;
+  filter: brightness(110%);
+  transition: 0.4s;
   }
 }
 .partner__photo {
@@ -266,12 +275,12 @@ main {
 .partner__name {
   display: block;
   text-align: center;
-  color: #333;
+  color: $primary-title-color;
   font-weight: 700;
   padding: 20px 2px 5px 0;
 }
 .partner__info {
-  color: #666;
+  color: $primary-content-color;
   font-family: $content-font;
   font-weight: 300;
   text-align: center;
@@ -286,8 +295,8 @@ main {
   position: relative;
   left: -2px;
   line-height: 36px;
-  color: #ff4e50;
-  border: 2px solid #ff4e50;
+  color: $primary-btn-color;
+  border: 2px solid $primary-btn-color;
 }
 
 // MAIN - ACTIVITIES
@@ -309,7 +318,7 @@ main {
 }
 .activities__item-bg {
   @include border-radius(4px);
-  background: #333;
+  background: $primary-title-color;
   width: 100%;
   height: 100%;
   position: relative;
@@ -332,7 +341,7 @@ main {
   top: 50%;
   left: 50%;
   text-align: center;
-  color: #fff;
+  color: $secondary-title-color;
   font-size: 22px;
   transform: translate(-50%, -50%);
   margin-right: -50%;
@@ -351,7 +360,7 @@ main {
   left: 1px;
 }
 .find-activities__content {
-  color: #333;
+  color: $primary-title-color;
   font-family: $content-font;
   font-size: 18px;
   font-weight: 300;
@@ -378,8 +387,8 @@ main {
     box-shadow: 0 1px 0 #eee;
   }
   .search-btn_find-activities {
-    color: #fff;
-    background-color: #ff4e50;
+    color: $secondary-btn-color;
+    background-color: $primary-btn-color;
     border: 0;
     outline: 0;
     margin-top: 10px;
@@ -400,7 +409,7 @@ footer {
   }
 }
 .logo_footer {
-  color: #ff4e50;
+  color: $primary-color;
   font-size: 16px;
   letter-spacing: 0.8px;
 }
@@ -408,7 +417,7 @@ footer {
   padding: 14px 0 17px 0;
   font-size: 14px;
   .site-navigation__column-title {
-    color: #333;
+    color: $primary-title-color;
   }
   .menu {
     padding: 6px 0 16px 0;
@@ -421,7 +430,7 @@ footer {
     margin-right: 10px;
   }
   .menu__link {
-    color: #666;
+    color: $primary-content-color;
     font-family: $content-font;
     font-weight: 300;
     text-decoration: none;
@@ -433,7 +442,7 @@ footer {
 }
 .copyrights__content {
   padding-bottom: 8px;
-  color: #ccc;
+  color: $secondary-content-color;
   text-align: center;
   font-size: 10px;
   font-weight: 700;

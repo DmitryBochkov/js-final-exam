@@ -85,8 +85,8 @@ main {
   line-height: 1.23;
   letter-spacing: -0.075px;
 }
-.slick-prev,
-.slick-next {
+.bx-prev,
+.bx-next {
   display: inline-block !important;
   position: absolute;
   z-index: 10;
@@ -94,21 +94,22 @@ main {
   width: 50px;
   height: 55px;
   top: 49px;
+  text-indent: -9999px;
 }
-.slick-prev {
+.bx-prev {
   background: url(../img/slider-left-arrow.png) 20px 0 no-repeat;
   left: 10px;
 }
-.slick-next {
+.bx-next {
   background: url(../img/slider-right-arrow.png) -1px 0 no-repeat;
   right: 10px;
 }
-.slider-2 {
-  .slick-prev {
+.slider:nth-of-type(2) {
+  .bx-prev {
     left: 10px;
     background-position-x: 10px;
   }
-  .slick-next {
+  .bx-next {
     right: 10px;
     background-position-x: 10px;
   }

@@ -111,7 +111,8 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: #fff; }
+  background: #fff;
+  overflow-x: hidden; }
 
 .clearfix:after {
   content: '';
@@ -221,11 +222,20 @@ main {
   padding: 35px 0 14px 0px; }
 
 .slider {
+  position: relative;
   width: 300px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-bottom: 10px;
+  *zoom: 1;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y; }
 
-.slick-prev,
-.slick-next {
+.bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0); }
+
+.bx-prev,
+.bx-next {
   display: none !important; }
 
 .slide {
@@ -638,25 +648,26 @@ footer {
     padding: 6px 0 0 0;
     line-height: 1.23;
     letter-spacing: -0.075px; }
-  .slick-prev,
-  .slick-next {
+  .bx-prev,
+  .bx-next {
     display: inline-block !important;
     position: absolute;
     z-index: 10;
     cursor: pointer;
     width: 50px;
     height: 55px;
-    top: 49px; }
-  .slick-prev {
+    top: 49px;
+    text-indent: -9999px; }
+  .bx-prev {
     background: url(../img/slider-left-arrow.png) 20px 0 no-repeat;
     left: 10px; }
-  .slick-next {
+  .bx-next {
     background: url(../img/slider-right-arrow.png) -1px 0 no-repeat;
     right: 10px; }
-  .slider-2 .slick-prev {
+  .slider:nth-of-type(2) .bx-prev {
     left: 10px;
     background-position-x: 10px; }
-  .slider-2 .slick-next {
+  .slider:nth-of-type(2) .bx-next {
     right: 10px;
     background-position-x: 10px; }
   .section-title_partners {
@@ -774,17 +785,17 @@ footer {
     background-position: 52.5% -20px; }
   .slide_3 {
     background-position: 49.9% -23px; }
-  .slick-prev,
-  .slick-next {
+  .bx-prev,
+  .bx-next {
     top: 162px; }
-  .slick-prev {
+  .bx-prev {
     background-position: 21px 0; }
-  .slick-next {
+  .bx-next {
     background-position: 0 0; }
-  .slider-2 .slick-prev {
+  .slider:nth-of-type(2) .bx-prev {
     left: 13px;
     background-position-x: 19px; }
-  .slider-2 .slick-next {
+  .slider:nth-of-type(2) .bx-next {
     right: 13px;
     background-position-x: 3px; }
   .slide__info-title {
