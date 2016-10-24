@@ -66,7 +66,7 @@ gulp.task('useref', function(){
   return gulp.src(path.src.html)
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf(['*.js', '!selectivizr.js'], uglify()))
     .pipe(gulp.dest(path.build.html))
 });
 
