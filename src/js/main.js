@@ -26,10 +26,22 @@ var msnry = new Masonry(actGrid, {
    percentPosition: true
  });
 
-var request = new XMLHttpRequest();
 function getPixabayJson(word, counter) {
+  var request;
+  var url;
+  if (window.location.protocol !== 'https') { // defines protocol for ie8
+  url = 'http://pixabay.com/api/?key=2506275-f30addddea12a14e13f6c6e1d&q=' + word + '&limit=' + counter;
+  } else {
+  url = 'https://pixabay.com/api/?key=2506275-f30addddea12a14e13f6c6e1d&q=' + word + '&limit=' + counter;
+  }
 
-  request.open('GET', 'https://pixabay.com/api/?key=2506275-f30addddea12a14e13f6c6e1d&q=' + word + '&image_type=photo&per_page=' + counter);
+  if (window.XMLHttpRequest) {
+  request = new XMLHttpRequest();
+  } else { // request for ie8
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  request.open('GET', url, true);
   request.send();
   request.onreadystatechange = function() {
     actGrid.innerHTML = ''; // Clearing the content
@@ -87,17 +99,33 @@ function getPixabayJson(word, counter) {
     }
   }
 }
-// getPixabayJson('', 7);
 
-// getPixabayJson('', 7);
-document.querySelector('.search-btn_find-activities').addEventListener('click', function(ev) {
-  ev.preventDefault();
-  var elemsToDelete = msnry.getItemElements(); // getting previously added Masonry blocks
-  msnry.remove(elemsToDelete); // and deleting them
+getPixabayJson('', 7);
 
-  var searchWord = document.querySelector('.find-activities__input').value;
-  getPixabayJson(searchWord, 7); // triggerring getPixabayJson(word, count);
+var searchBtn = document.querySelector('.search-btn_find-activities');
+var searchWord;
+
+if (searchBtn.addEventListener) {
+    searchBtn.addEventListener("click", function(ev) {
+      ev.preventDefault();
+
+      var elemsToDelete = msnry.getItemElements(); // getting previously added Masonry blocks
+      msnry.remove(elemsToDelete); // and deleting them
+
+      searchWord = document.querySelector('.find-activities__input').value;
+      getPixabayJson(searchWord, 7); // triggerring getPixabayJson(word, count);
+    }, false);
+} else { // the same for ie8
+    searchBtn.attachEvent("onclick", function(ev) {
+    ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;
+
+    var elemsToDelete = msnry.getItemElements();
+    msnry.remove(elemsToDelete);
+
+    searchWord = document.querySelector('.find-activities__input').value;
+    getPixabayJson(searchWord, 7);
 });
+}
 
 // Creates and adds new elems
 function addNewElement(tag, content, parent) {
