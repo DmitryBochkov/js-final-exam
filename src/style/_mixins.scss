@@ -24,3 +24,19 @@
   -o-transition:      $what $time $how;
   transition:         $what $time $how;
 }
+
+@mixin box-shadow($shadow...) {
+-webkit-box-shadow: $shadow;
+-moz-box-shadow: $shadow;
+box-shadow: $shadow;
+}
+
+// example: @include opacity(50);
+@mixin opacity($p) {
+ opacity: $p*0.01;
+ -webkit-opacity: $p*0.01;
+ -khtml-opacity: $p*0.01;
+ -moz-opacity: $p*0.01;
+ filter:alpha(opacity=$p);
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$p)";
+}

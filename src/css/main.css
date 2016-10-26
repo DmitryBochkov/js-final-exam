@@ -97,6 +97,51 @@
   font-weight: 900; }
 
 /* @include transition(all,2s,ease-out); */
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -348,9 +393,6 @@ main {
   .partner__photo:after {
     content: '';
     position: absolute;
-    background: url(../img/partner-icons.png) no-repeat;
-    width: 41px;
-    height: 41px;
     right: -4px;
     bottom: -6px; }
 
@@ -364,7 +406,11 @@ main {
     background: url(../img/bradley-hunter1.jpg) no-repeat;
     background-position: -2px -1px; }
     .partner:first-of-type .partner__photo:after {
-      background-position: -47px -47px; }
+      background-image: url(../img/sprite.png);
+      background-position: 0px -43px;
+      width: 41px;
+      height: 41px;
+      background-repeat: no-repeat; }
 
 .partner:nth-of-type(2) {
   left: -2px;
@@ -373,7 +419,11 @@ main {
     background: url(../img/heather-walker.jpg) no-repeat;
     background-position: -1px -2px; }
     .partner:nth-of-type(2) .partner__photo:after {
-      background-position: -2px -47px; }
+      background-image: url(../img/sprite.png);
+      background-position: -43px 0px;
+      width: 41px;
+      height: 41px;
+      background-repeat: no-repeat; }
 
 .partner:nth-of-type(3) {
   display: table-header-group; }
@@ -381,8 +431,11 @@ main {
     background: url(../img/lucas-marsha.jpg) no-repeat;
     background-position: -3px -2px; }
     .partner:nth-of-type(3) .partner__photo:after {
+      background-image: url(../img/sprite.png);
+      background-position: -43px -43px;
+      width: 41px;
       height: 40px;
-      background-position: -2px -2px;
+      background-repeat: no-repeat;
       bottom: -5px; }
 
 .partner:nth-of-type(4) {
@@ -391,7 +444,11 @@ main {
     background: url(../img/bradley-hunter2.jpg) no-repeat;
     background-position: -3px -2px; }
     .partner:nth-of-type(4) .partner__photo:after {
-      background-position: -47px -2px; }
+      background-image: url(../img/sprite.png);
+      background-position: 0px 0px;
+      width: 41px;
+      height: 41px;
+      background-repeat: no-repeat; }
 
 .partner__name {
   display: block;
@@ -451,6 +508,11 @@ main {
   -ms-border-radius: 4px;
   border-radius: 4px;
   opacity: 0.7;
+  -webkit-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -moz-opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$p)";
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -458,6 +520,11 @@ main {
   height: 100%; }
   .activities__photo:hover {
     opacity: 0.9;
+    -webkit-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    -moz-opacity: 0.9;
+    filter: alpha(opacity=90);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$p)";
     transition: 0.6s; }
 
 .activities__text {
@@ -498,12 +565,14 @@ main {
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #eee;
+    -moz-box-shadow: 0 1px 0 #eee;
+    box-shadow: 0 1px 0 #eee;
     outline: 0;
     padding-left: 15px;
     width: 280px;
     height: 40px;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 0 #eee; }
+    border: 1px solid #ccc; }
     .find-activities__form .find-activities__input::-webkit-input-placeholder {
       color: #999;
       font-family: "Roboto", sans-serif;

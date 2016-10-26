@@ -11,7 +11,7 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
-var svgSprite = require('gulp-svg-sprite');
+var spritesmith = require('gulp.spritesmith');
 
 var path = {
   build: { //Тут мы укажем куда складывать готовые после сборки файлы
@@ -26,7 +26,7 @@ var path = {
     js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
     style: 'src/style/main.scss',
     css: 'src/css/',
-    img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    img: 'src/img/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
     fonts: 'src/fonts/**/*.*'
   },
   watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
@@ -66,7 +66,7 @@ gulp.task('useref', function(){
   return gulp.src(path.src.html)
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulpIf(['*.js', '!selectivizr.js'], uglify()))
+    .pipe(gulpIf(['js/*.js', '!js/selectivizr.js'], uglify()))
     .pipe(gulp.dest(path.build.html))
 });
 
@@ -76,26 +76,16 @@ gulp.task('images', function(){
   .pipe(gulp.dest(path.build.img))
 });
 
-var config = {
-  mode: {
-    css: {     // Activate the «css» mode
-      render: {
-        css: true  // Activate CSS output (with default options)
-      }
-    }
-  },
-  shape: {
-    spacing: {         // Add padding
-      padding: 5
-    }
-  }
-};
-gulp.task('svgSprite', function(){
-  return gulp.src('src/img/SVG/*.svg')
-  .pipe(svgSprite(config))
-  .pipe(gulp.dest('src/img'));
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('src/img/sprites/*.png')
+    .pipe(spritesmith({
+      imgName: '../img/sprite.png',
+      cssName: '_sprite.scss',
+      padding: 2
+    }));
+  spriteData.img.pipe(gulp.dest('src/img'));
+  spriteData.css.pipe(gulp.dest('src/style'));
 });
-
 
 gulp.task('fonts', function() {
   return gulp.src(path.src.fonts)
