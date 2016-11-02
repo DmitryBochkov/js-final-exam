@@ -29,7 +29,7 @@ var msnry = new Masonry(actGrid, {
 function getPixabayJson(word, counter) {
   var request;
   var url;
-  if (window.location.protocol !== 'https') { // defines protocol for ie8
+  if (location.protocol !== 'https') { // defines protocol for ie8
   url = 'http://pixabay.com/api/?key=2506275-f30addddea12a14e13f6c6e1d&q=' + word + '&limit=' + counter;
   } else {
   url = 'https://pixabay.com/api/?key=2506275-f30addddea12a14e13f6c6e1d&q=' + word + '&limit=' + counter;
